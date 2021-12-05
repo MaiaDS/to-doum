@@ -1,0 +1,38 @@
+$light-grey: #E4E4E4;
+$dark-grey: #707070;
+$black: #000;
+$white: #FFF;
+$red: #DE9B9B;
+$green: #97C993;
+
+// SIZE
+$browser-context: 16; // Default
+@use "sass:math";
+@function rem($pixels, $context: $browser-context) {
+  @return #{math.div($pixels, $context)}rem;
+}
+
+// FONTS
+@font-face {
+  font-family: "Overpass-Regular";
+  src: url("./fonts/Overpass-Regular.otf") format("otf"),
+    url("./fonts/Overpass-Regular.woff") format("woff");
+  font-weight: 400;
+}
+
+@mixin font_primary_regular() {
+  font-family: "Overpass-Regular", sans-serif;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Overpass-Bold";
+  src: url("./fonts/Overpass-Bold.otf") format("otf"),
+    url("./fonts/Overpass-Bold.woff") format("woff");
+  font-weight: 700;
+}
+
+@mixin font_primary_bold() {
+  font-family: "Overpass-Bold", sans-serif;
+  font-weight: 700;
+}
