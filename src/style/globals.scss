@@ -1,0 +1,22 @@
+@import "helpers/reset";
+@import "helpers/variables";
+
+html {
+    background-color: $light-grey;
+
+    body {
+        padding: rem(80);
+        @include font_primary_regular ;
+
+        header {
+            margin-bottom: rem(20);
+
+            h1 {
+                font-size: rem(20);
+                color: $dark-grey;
+                text-transform: uppercase;
+                @include font_primary_bold ;
+            }
+        }
+    }
+}

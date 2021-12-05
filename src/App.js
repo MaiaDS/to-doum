@@ -1,23 +1,19 @@
-import logo from './assets/logo.svg';
 import './style/App.scss';
+import todos from "./data/todos";
+import Todo from './components/todo/Todo';
+
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>To-Doums</h1>
       </header>
+      <main>
+        {todos.map((todo) => (
+          <Todo key={todo.id} title={todo.title} done={todo.done} urgent={todo.urgent}/>
+        ))}
+      </main>
     </div>
   );
 }
