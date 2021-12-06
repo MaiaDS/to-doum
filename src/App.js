@@ -1,21 +1,14 @@
-import './style/App.scss';
-import todos from "./data/todos";
-import ListItem from './components/list-item/ListItem';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Todo from "./pages/Todo";
+import TodoList from "./pages/TodoList";
 
-
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>To-Doums</h1>
-      </header>
-      <main>
-        {todos.map((todo) => (
-          <ListItem key={todo.id} title={todo.title} done={todo.done} urgent={todo.urgent}/>
-        ))}
-      </main>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<TodoList />}/>
+        <Route path="/todo/:id" element={<Todo />}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;

@@ -1,0 +1,14 @@
+@import "../../style/helpers/variables.scss";
+
+.link {
+    border-radius: $border-radius;
+    padding: rem(5) rem(10);
+    background-color: $light-grey;
+    color: $dark-grey;
+
+    &:hover {
+        background-color: $dark-grey;
+        color: $light-grey;
+        transition: 0.3s;
+    }
+}
