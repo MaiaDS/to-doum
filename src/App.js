@@ -1,6 +1,6 @@
 import './style/App.scss';
 import todos from "./data/todos";
-import Todo from './components/todo/Todo';
+import ListItem from './components/list-item/ListItem';
 
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       </header>
       <main>
         {todos.map((todo) => (
-          <Todo key={todo.id} title={todo.title} done={todo.done} urgent={todo.urgent}/>
+          <ListItem key={todo.id} title={todo.title} done={todo.done} urgent={todo.urgent}/>
         ))}
       </main>
     </div>

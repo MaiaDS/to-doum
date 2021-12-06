@@ -10,7 +10,7 @@ const todos = [
       id: 2,
       title: "Change a TODO state",
       done: false,
-      urgent: false,
+      urgent: true,
       description: "As a user I would like to change a todo state by checking a \"box\""
     },
     {
