@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-
+import HomeButton from "../components/link/HomeButton";
 import todos from "../data/todos";
 import styles from '../style/todo.module.scss';
 
@@ -11,13 +11,13 @@ export default function Todo () {
 
     return (
         <div className={styles.container}>
-
-           
-
-            <div className={styles.tags}>
-                { urgent ? <span className={styles.urgent}>Urgent</span> : null }
-                { done ? <span className={styles.done}>This task is done</span> : null }
-            </div>
+            <HomeButton classname={styles.link}/> 
+            { urgent || done ?
+                <div className={styles.tags}>
+                    { urgent ? <span className={styles.urgent}>Urgent</span> : null }
+                    { done ? <span className={styles.done}>This task is done</span> : null }
+                </div>
+            : null }
             <h1>{title}</h1>
             <p>{description}</p>
             
