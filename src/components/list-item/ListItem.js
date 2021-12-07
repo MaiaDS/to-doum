@@ -1,14 +1,12 @@
-// import LinkButton from "../link/Link";
+import LinkButton from "../link/Link";
 import styles from "./list-item.module.scss";
 
 export default function ListItem ({
-    key, 
-    title,
-    done,
-    urgent
+    todo
 }) {
 
-    const checkTitle = title ? title : "Sans titre";
+    const { id, title, done, urgent } = todo ;
+
     const opacity = done ? "30%" : "100%"
 
     const style = {
@@ -18,10 +16,10 @@ export default function ListItem ({
     return (
         <div className={styles.container} style={style}>
             <div className={styles.input}>
-                <input type="checkbox" id={key} name={key} defaultChecked={done}/>
-                <label for={key}>{checkTitle}</label>   
+                <input type="checkbox" id={id} name={id} defaultChecked={done}/>
+                <label for={id}>{title}</label>   
             </div>
-            {/* <LinkButton title="See More" href="/"/>  */}
+            <LinkButton title="See More" href={`/todo/${id}`}/> 
             { urgent ? <span>!!!</span> : null }
         </div>
     );
