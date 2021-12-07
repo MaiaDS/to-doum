@@ -16,7 +16,7 @@ const todos = [
     {
       id: "3",
       title: "Detail a TODO",
-      done: false,
+      done: true,
       urgent: false,
       description: "As a user I would like to display one of my todo in a separate or dedicated view. This todo will contain its title and a description (which is a new information not shown in the previous view)."
     },

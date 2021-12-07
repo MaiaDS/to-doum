@@ -3,14 +3,21 @@ import ListItem from '../components/list-item/ListItem';
 
 
 export default function TodoList () {
+
+  const doneItems = todos.filter(item => item.done === true);
+  const todoItems = todos.filter(item => item.done === false);
+
   return (
     <>
       <header className="App-header">
         <h1>To-Doums</h1>
       </header>
       <main>
-        {todos.map((todo) => (
-          <ListItem key={todo.id} todo={todo}/>
+        {todoItems.map((item) => (
+          <ListItem key={item.id} todo={item}/>
+        ))}
+        {doneItems.map((item) => (
+          <ListItem key={item.id} todo={item}/>
         ))}
       </main>
     </>
