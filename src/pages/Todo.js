@@ -7,17 +7,17 @@ export default function Todo () {
 
     const { id } = useParams();
 
-    const { title, description, urgent, done } = todos.find(item => item.id === id)
+    const { title, description, important, done } = todos.find(item => item.id === id)
 
     return (
         <div className={styles.container}>
             <HomeButton classname={styles.link}/> 
-            { urgent || done ?
+            { (important || done ) && 
                 <div className={styles.tags}>
-                    { urgent ? <span className={styles.urgent}>Urgent</span> : null }
-                    { done ? <span className={styles.done}>This task is done</span> : null }
+                    { important &&  <span className={styles.important}>important</span> }
+                    { done &&  <span className={styles.done}>This task is done</span> }
                 </div>
-            : null }
+            }
             <h1>{title}</h1>
             <p>{description}</p>
             

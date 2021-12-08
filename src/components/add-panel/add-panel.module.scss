@@ -1,0 +1,35 @@
+@import "../../style/helpers/variables.scss";
+
+.container {
+    background-color: $white;
+    width: 45%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    right: 0;
+    padding: rem(80) rem(50);
+    color: $dark-grey;
+    z-index: 0;
+
+    .close {
+        float: right;
+    }
+
+    h2 {
+        font-size: rem(20);
+        text-transform: uppercase;
+        @include font_primary_bold ;
+        margin: rem(50) 0;
+    }
+
+    .add {
+        color: $white;
+        width: 100%;
+        margin-top: rem(50);
+
+        &:hover {
+            background-color: $white;
+            color: $dark-grey;
+        }
+    }
+}
