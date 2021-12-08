@@ -1,0 +1,35 @@
+@import "../../style/helpers/variables.scss";
+
+.input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: rem(30);
+    
+    label {
+        font-size: rem(15);
+        text-transform: uppercase;
+    }
+
+    input, textarea {
+        background-color: $light-grey;
+        border: none;
+        border-radius: $border-radius;
+        padding: rem(20);
+    }
+
+    input {
+        text-transform: uppercase;
+    }
+
+}
+
+.checkbox {
+    input {
+        -webkit-appearance: checkbox; 
+    }
+
+    label {
+        text-transform: uppercase;
+        margin-left: rem(10);
+    }
+}

@@ -5,7 +5,7 @@ export default function ListItem ({
     todo
 }) {
 
-    const { id, title, done, urgent } = todo ;
+    const { id, title, done, important } = todo ;
 
     const opacity = done ? "30%" : "100%"
 
@@ -20,7 +20,7 @@ export default function ListItem ({
                 <label for={id}>{title}</label>   
             </div>
             <LinkButton title="See More" href={`/todo/${id}`}/> 
-            { urgent ? <span>!!!</span> : null }
+            { important &&  <span>!!!</span> }
         </div>
     );
 }
