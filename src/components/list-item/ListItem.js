@@ -2,7 +2,8 @@ import LinkButton from "../link/Link";
 import styles from "./list-item.module.scss";
 
 export default function ListItem ({
-    todo
+    todo,
+    handleChange
 }) {
 
     const { id, title, done, important } = todo ;
@@ -16,7 +17,7 @@ export default function ListItem ({
     return (
         <div className={styles.container} style={style}>
             <div className={styles.input}>
-                <input type="checkbox" id={id} name={id} defaultChecked={done}/>
+                <input type="checkbox" id={id} name={id} defaultChecked={done} onChange={handleChange}/>
                 <label for={id}>{title}</label>   
             </div>
             <LinkButton title="See More" href={`/todo/${id}`}/> 
