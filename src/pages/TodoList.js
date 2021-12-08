@@ -12,11 +12,19 @@ export default function TodoList () {
 
 
   const addTodo = (todo) => {
-    setTodoList([...todoList, todo])
+    setTodoList([todo, ...todoList])
   }
 
-  const doneItems = todoList.filter(item => item.done === true);
-  const todoItems = todoList.filter(item => item.done === false);
+  const doneItems = todoList.filter(item => item.done);
+  const todoItems = todoList.filter(item => !item.done);
+
+  const compare = (todoA, todoB) => {
+    if (todoA.important === todoB.important) return 0
+    if (todoA.important) return -1
+    return 1
+  }
+
+  const sortedList = todoItems.sort(compare);
 
   return (
     <>
@@ -29,7 +37,7 @@ export default function TodoList () {
       </header>
       <main className={styles.container}>
         <section style={isDisplayed ? {width:"50%"} : {width:"100%"}}>
-          {todoItems.map((item) => (
+          {sortedList.map((item) => (
             <ListItem key={item.id} todo={item}/>
           ))}
           {doneItems.map((item) => (
