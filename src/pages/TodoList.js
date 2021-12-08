@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import AddPanel from "../components/add-panel/AddPanel";
 import ActionButton from "../components/button/Button";
 import ListItem from '../components/list-item/ListItem';
@@ -18,13 +18,22 @@ export default function TodoList () {
   const doneItems = todoList.filter(item => item.done);
   const todoItems = todoList.filter(item => !item.done);
 
+
   const compare = (todoA, todoB) => {
     if (todoA.important === todoB.important) return 0
     if (todoA.important) return -1
     return 1
   }
 
-  const sortedList = todoItems.sort(compare);
+  const sortedList = todoItems.sort(compare).concat(doneItems); 
+
+  const changeTodoState = (id, checked) => {
+    const updatedTodoList = todoList.map((todo) => {
+      if (todo.id === id) return { ...todo, done : checked};
+      return todo ;
+    })
+    setTodoList(updatedTodoList);
+  }
 
   return (
     <>
@@ -38,15 +47,11 @@ export default function TodoList () {
       <main className={styles.container}>
         <section style={isDisplayed ? {width:"50%"} : {width:"100%"}}>
           {sortedList.map((item) => (
-            <ListItem key={item.id} todo={item}/>
-          ))}
-          {doneItems.map((item) => (
-            <ListItem key={item.id} todo={item}/>
+            <ListItem key={item.id} todo={item} handleChange={() => changeTodoState(item.id, !item.done)}/>
           ))}
         </section>
         { isDisplayed && <AddPanel addTodo={addTodo} handleClose={() => setIsDisplayed(false)}/> }
       </main>
-      
     </>
   );
 }
