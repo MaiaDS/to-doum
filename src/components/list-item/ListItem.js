@@ -15,10 +15,10 @@ export default function ListItem ({
     };
     
     return (
-        <div className={styles.container} style={style}>
+        <div className={styles.container} style={style} data-testid={`listItem_container_${id}`}>
             <div className={styles.input}>
-                <input type="checkbox" id={id} name={id} defaultChecked={done} onChange={handleChange}/>
-                <label for={id}>{title}</label>   
+                <input type="checkbox" id={id} name={id} defaultChecked={done} onChange={handleChange} data-testid={`listItem_checkbox_${id}`}/>
+                <label htmlFor={id}>{title}</label>   
             </div>
             <LinkButton title="See More" href={`/todo/${id}`}/> 
             { important &&  <span>!!!</span> }

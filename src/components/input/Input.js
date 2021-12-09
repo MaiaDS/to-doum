@@ -6,7 +6,7 @@ export default function Input ({type, name, label, ...props}) {
         <>
             { type !== "checkbox" ? 
                 <div className={styles.input}>
-                    <label for={name}>{label}</label> 
+                    <label htmlFor={name}>{label}</label> 
                     { type === "textarea" ? 
                         <textarea id={name} name={name} {...props}></textarea>
                     :
@@ -18,7 +18,7 @@ export default function Input ({type, name, label, ...props}) {
             : 
                 <div className={styles.checkbox}>
                     <input type={type} name={name} id={name} {...props}/>
-                    <label for={name}>{label}</label>
+                    <label htmlFor={name}>{label}</label>
                 </div>
             }
         </>
