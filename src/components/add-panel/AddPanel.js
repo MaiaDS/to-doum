@@ -41,7 +41,7 @@ export default function AddPanel ({addTodo, handleClose}) {
                 <Input 
                     type="textarea" 
                     name="description" 
-                    rows="10" 
+                    rows="5" 
                     placeholder="Add your description...."
                     value={formValues.description}
                     onChange={handleInputChange}
