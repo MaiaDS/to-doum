@@ -12,7 +12,9 @@ export default function TodoList () {
 
 
   const addTodo = (todo) => {
-    setTodoList([todo, ...todoList])
+    if (todo.title !== "") {
+      setTodoList([todo, ...todoList])
+    }
   }
 
   const doneItems = todoList.filter(item => item.done);
